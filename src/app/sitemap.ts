@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { BUSINESS, SERVICES, BLOG_POSTS } from '@/data';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BUSINESS.siteUrl;
   const now = new Date();

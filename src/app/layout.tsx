@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
+  icons: {
+    icon: '/images/logo.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
