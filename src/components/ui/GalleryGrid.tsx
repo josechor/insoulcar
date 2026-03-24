@@ -131,43 +131,46 @@ export default function GalleryGrid() {
             {(lightboxIndex ?? 0) + 1} / {filtered.length}
           </div>
 
-          {/* Prev */}
-          <button
-            onClick={(e) => { e.stopPropagation(); goPrev(); }}
-            className="absolute left-3 sm:left-6 text-white/70 hover:text-white p-2 sm:p-3 rounded-full hover:bg-white/10 transition-colors z-10"
-            aria-label="Imagen anterior"
-          >
-            <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+           {/* Image container */}
+           <div className="relative w-full h-full flex flex-col items-center justify-center px-4 sm:px-8">
+           {/* Prev */}
+           <button
+             onClick={(e) => { e.stopPropagation(); goPrev(); }}
+             className="absolute left-6 translate-x-0 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/30 transition-colors z-10"
+             aria-label="Imagen anterior"
+           >
+             <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+             </svg>
+           </button>
 
-          {/* Image */}
-          <div
-            className="relative w-full max-w-4xl mx-16 sm:mx-24 aspect-[4/3]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              key={currentImage.id}
-              src={currentImage.src}
-              alt={currentImage.alt}
-              fill
-              sizes="(max-width: 768px) 100vw, 80vw"
-              className="object-contain"
-              priority
-            />
-          </div>
+           {/* Image */}
+           <div
+             className="relative w-full max-w-4xl px-16 sm:px-0 aspect-[4/3]"
+             onClick={(e) => e.stopPropagation()}
+           >
+             <Image
+               key={currentImage.id}
+               src={currentImage.src}
+               alt={currentImage.alt}
+               fill
+               sizes="(max-width: 768px) 100vw, 80vw"
+               className="object-contain"
+               priority
+             />
+           </div>
 
-          {/* Next */}
-          <button
-            onClick={(e) => { e.stopPropagation(); goNext(); }}
-            className="absolute right-3 sm:right-6 text-white/70 hover:text-white p-2 sm:p-3 rounded-full hover:bg-white/10 transition-colors z-10"
-            aria-label="Imagen siguiente"
-          >
-            <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+           {/* Next */}
+           <button
+             onClick={(e) => { e.stopPropagation(); goNext(); }}
+             className="h-fit absolute right-6  top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/30 transition-colors z-10"
+             aria-label="Imagen siguiente"
+           >
+             <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+             </svg>
+           </button>
+           </div>
 
           {/* Caption */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm text-center px-4">
